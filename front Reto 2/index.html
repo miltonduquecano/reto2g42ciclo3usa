@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USA MTIC CICLO3 G42 RETO 2 MILTON</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="myScript.js"></script>
+<body>
+
+	<h1>cloud !</h1>
+
+	ID: <input type="number" id="idcloud"><br>
+	BRAND: <input type="text" id="brandcloud"><br>
+	MODEL: <input type="number" id="modelcloud"><br>
+	CATEGORY_ID: <input type="number" id="category_idcloud"><br>
+	NAME: <input type="text" id="namecloud"><br>
+
+
+	<button onclick="guardarCloud()">GUARDAR CLOUD</button>
+
+	<button onclick="editarCloud()">ACTUALIZAR CLOUD</button>
+	<button onclick="leerCloud()">TRAER CLOUD</button>
+
+	<div id="listaCloud">
+
+	</div>
+
+
+	<h1>client !</h1>
+
+	Id de Cliente: <input type="number" id="idCliente"><br>
+	Nombre de Cliente: <input type="text" id="nombreCliente"><br>
+	Correo de Cliente: <input type="text" id="mailCliente"><br>
+	Edad de Cliente: <input type="number" id="edadCliente"><br>
+
+	<button onclick="guardarCliente()">GUARDAR CLIENTE</button>
+
+	<button onclick="editarCliente()">ACTUALIZAR CLIENTE</button>
+	<button onclick="leerClientes()">TRAER CLIENTES</button>
+
+	<div id="listaClientes">
+
+	</div>
+
+
+	<h1>message !</h1>
+
+	ID: <input type="number" id="idMessage"><br>
+	MESSAGETEXT: <input type="text" id="messagetextMessage"><br>
+	
+	<button onclick="guardarMessage()">GUARDAR MESSAGE</button>
+
+	<button onclick="editarMessage()">ACTUALIZAR MESSAGE</button>
+	<button onclick="leerMessage()">TRAER MESSAGE</button>
+
+	<div id="listaMessage">
+
+	</div>
+
+</body>
+</html>

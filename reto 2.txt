@@ -1,0 +1,94 @@
+*******************************
+Creación de la tabla CLIENT
+
+CREATE TABLE CLIENT (
+   	id NUMBER NOT NULL,
+	name VARCHAR2(4000),
+	email VARCHAR2(60),
+	age NUMBER,
+	PRIMARY KEY (id)
+);
+
+******************************
+Creación secuencia ID autonomerico para la tabla CLIENT
+
+create SEQUENCE client_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER client_seq_tr
+    BEFORE INSERT ON client FOR EACH ROW
+    WHEN(NEW.ID IS NULL)
+BEGIN
+    SELECT client_seq.NEXTVAL INTO :NEW.ID FROM DUAL;
+END;
+******************************
+Creación de la tabla message
+
+CREATE TABLE MESSAGE (
+    id NUMBER NOT NULL,
+    messagetext VARCHAR2(4000),
+    PRIMARY KEY (id)
+);
+******************************
+Creación del GET para CLIENT
+SELECT * FROM client ORDER BY ID ASC
+******************************
+Creación del POST para CLIENT
+BEGIN
+    INSERT INTO client(id, name, email, age)
+    VALUES(:id, :name, :email, :age);
+    :status_code:=201;
+END;
+*******************************
+Creacion del DELET para CLIENT
+BEGIN
+    DELETE FROM client
+    WHERE id = :id;
+    :status_code := 204;
+END;
+********************************
+Creación de PUT para CLIENT
+BEGIN
+    UPDATE CLIENT SET
+    name = :name,
+    email = :email,
+    age = :age
+    WHERE id = :id;
+    :status_code := 201;
+END;
+*********************************
+
+Creación del DELET para CLIENT/:ID
+BEGIN
+    SELECT * FROM client WHERE id =:id
+END
+**************************************
+Creación del GET para MESSAGE 
+SELECT * FROM message ORDER BY ID ASC
+*************************************
+Cración del POST para MESSAGE
+BEGIN
+    INSERT INTO message (id, messagetext)
+    VALUES (:id,:messagetext);
+    :status_code := 201;
+END;
+**************************************
+Creación del PUT para MESSAGE
+BEGIN
+    UPDATE MESSAGE SET
+    MESSAGETEXT = :messagetext
+    WHERE ID = :id;
+    :status_code := 201;
+END;
+***************************************
+Creación del DELET para MESSAGE
+BEGIN
+    DELETE FROM MESSAGE WHERE ID = :id;
+    :status_code := 204;
+END;
+**************************************
+Creación del GET para MESSAGE/:ID
+BEGIN
+    SELECT * FROM message WHERE id =:id
+END
+
+
